@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LoyaltyShop</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- កន្លែងសម្រាប់ភ្ជាប់កូដ CSS មកកាន់ HTML -->
+</head>
+<body>
+  <div class="product-box">
+  <h1>សូមស្វាគមន៍មកកាន់ LoyaltyShop</h1>
+  </div>
+  
+  <div class="product-box">
+    <img src="https://i.postimg.cc/ZqHdL7hK/Rank.png"
+    <h2>ᴘʀᴏ ᴘʟᴀʏᴇʀ</h2>
+    <p class="price">$3.00</p>
+    <button class="buy-button" onclick="openPopup()">ទិញឥឡូវនេះ</button>
+
+  </div>
+  
+  <div class="product-box">
+    <img src="https://i.postimg.cc/ZqHdL7hK/Rank.png"
+    <h2>ᴋɪɴɢ ᴘʟᴀʏᴇʀ</h2>
+    <p class="price">$6.00</p>
+    <button class="buy-button" onclick="openPopup()">ទិញឥឡូវនេះ</button>
+  </div>
+  
+  <div class="product-box">
+    <img src="https://i.postimg.cc/ZqHdL7hK/Rank.png"
+    <h2>ɢᴏᴅ ᴘʟᴀʏᴇʀ</h2>
+    <p class="price">$9.00</p>
+    <button class="buy-button" onclick="openPopup()">ទិញឥឡូវនេះ</button>
+  </div>
+  
+  <div id="buy-popup">
+  <button onclick="closePopup()">បិទផ្ទាំង</button>
+  <br><h3>ឈ្មោះក្នុងហ្គេម:</h3>
+    <h5>បើᴍɪɴᴇᴄʀᴀꜰᴛ ʙᴇᴅʀᴏᴄᴋកំភ្លេចថែម(.)</h5>
+    <input type="text" id="gameName">
+    <br><h3>ឈ្មោះTelegram:</h3>
+    <h5>កុំភ្លេចបន្ថែមសញ្ញា (@)</h5>
+    <input type="text" id="teleName">
+    <br><h3>ជ្រើសរើសRank:</h3>
+  <select id="product" onchange="showQR()">
+    <option value="https://i.postimg.cc/rsdxtgBq/IMG-20260329-111053-879.jpg">ᴘʀᴏ ᴘʟᴀʏᴇʀ - 3$</option>
+    <option value="https://i.postimg.cc/rsdxtgBq/IMG-20260329-111053-879.jpg">ᴋɪɴɢ ᴘʟᴀʏᴇʀ - 6$</option>
+    <option value="https://i.postimg.cc/rsdxtgBq/IMG-20260329-111053-879.jpg">ɢᴏᴅ ᴘʟᴀʏᴇʀ - 9$</option>
+  </select>
+  <br><img id="qr-code" src="">
+  <br><input type="file" id="receipt" accept="image/*">
+  
+  <br><button id="submitBtn" onclick="sendToTelegram()">បញ្ជាក់ការទិញ</button>
+  </div>
+  
+   <script src="script.js"></script>
+
+</body>
+</html>
