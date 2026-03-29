@@ -22,10 +22,9 @@ h1 {
   border-radius: 20px; /* ជ្រុងកោងមូល */
   box-shadow: 0 8px 16px rgba(0, 151, 167, 0.1); /* ស្រមោលពណ៌ខៀវ */
   padding: 20px;
-  margin: 25px auto; /* ឃ្លាតពីគ្នាបន្តិច */
-  width: 95%; /* ទំហំប្រអប់កុំឱ្យធំពេក */
+  margin: 20px auto; /* ឃ្លាតពីគ្នាបន្តិច */
+  max-width: 320px; /* ទំហំប្រអប់កុំឱ្យធំពេក */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box;
 }
 
 /* ចលនាពេលយកដៃប៉ះប្រអប់ទំនិញ 👆 */
@@ -125,16 +124,11 @@ button:active {
   padding: 8px 15px;
   margin-bottom: 10px;
 }
-  /* កែសម្រួលឈ្មោះផលិតផល */
-.product-box h2 {
-    font-size: 24px; /* ពង្រីកឈ្មោះផលិតផលឱ្យធំល្មម */
-    margin-top: 15px; /* បន្ថែមចន្លោះពីលើរូបភាពបន្តិច */
-    color: #333;
+.product-container {
+    display: flex;          /* បើកមុខងារតម្រៀបជួរ */
+    flex-wrap: wrap;        /* អនុញ្ញាតឱ្យវាធ្លាក់ចុះមកក្រោមបើអស់កន្លែង */
+    justify-content: center; /* តម្រៀបឱ្យនៅចំកណ្តាល */
+    gap: 10px;              /* បង្កើតចន្លោះរវាងប្រអប់នីមួយៗ */
+    padding: 10px;
 }
 
-/* កែសម្រួលតម្លៃ */
-.price {
-    font-size: 22px; /* ពង្រីកទំហំតម្លៃឱ្យងាយអាន */
-    font-weight: bold; /* ធ្វើឱ្យអក្សរដិតច្បាស់ */
-    margin-bottom: 20px; /* បន្ថែមចន្លោះមុនដល់ប៊ូតុង */
-}
