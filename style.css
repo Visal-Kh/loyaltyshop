@@ -1,0 +1,126 @@
+/* ១. ទម្រង់ទូទៅ (Global Setup) */
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&display=swap');
+
+body {
+  font-family: 'Khmer Pro', sans-serif;
+  background-color: #e0f7fa; /* ពណ៌ខៀវទឹកសមុទ្រស្រាល */
+  color: #333;
+  margin: 0;
+  padding: 20px 10px;
+  text-align: center; /* ឱ្យអក្សររត់ចំកណ្តាល */
+}
+
+h1 {
+  color: #00838f; /* ពណ៌ចំណងជើងធំ */
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* ២. តុបតែងប្រអប់ទំនិញ (Product Cards) ដែលមានឈ្មោះ product-box */
+.product-box {
+  background-color: white; /* ផ្ទៃប្រអប់ពណ៌ស */
+  border-radius: 20px; /* ជ្រុងកោងមូល */
+  box-shadow: 0 8px 16px rgba(0, 151, 167, 0.1); /* ស្រមោលពណ៌ខៀវ */
+  padding: 20px;
+  margin: 20px auto; /* ឃ្លាតពីគ្នាបន្តិច */
+  max-width: 320px; /* ទំហំប្រអប់កុំឱ្យធំពេក */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ចលនាពេលយកដៃប៉ះប្រអប់ទំនិញ 👆 */
+.product-box:hover {
+  transform: translateY(-5px); /* រំកិលឡើងលើ */
+  box-shadow: 0 12px 20px rgba(0, 151, 167, 0.3);
+}
+
+/* រូបភាពក្នុងប្រអប់ទំនិញ */
+.product-box img {
+  width: 100%;
+  height: 200px; /* កំណត់កម្ពស់ថេរ កុំឱ្យរូបភាពតូចធំខុសគ្នា */
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+/* ពណ៌តម្លៃលុយ */
+.price {
+  color: #ff4757;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* ៣. តុបតែងប៊ូតុងទាំងអស់ */
+button {
+  background-color: #00bcd4; /* ពណ៌ទឹកសមុទ្រ */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 188, 212, 0.3);
+  transition: all 0.2s ease;
+  width: 100%; /* ឱ្យប៊ូតុងវែងពេញប្រអប់ */
+}
+
+/* ចលនាពេលយកដៃប៉ះប៊ូតុង */
+button:hover {
+  background-color: #00acc1;
+}
+button:active {
+  transform: scale(0.95); /* ចុចទៅរួមតូចបន្តិច */
+}
+
+/* ៤. តុបតែងផ្ទាំង Popup (សំខាន់! ទីនេះគឺសម្រាប់លាក់វាសិន) */
+#buy-popup {
+  display: none; /* វេទមន្តលាក់ផ្ទាំង Popup មិនឱ្យរាយប៉ាយ! 🪄 */
+  position: fixed; /* បង្កកវានៅកណ្តាលអេក្រង់ */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5); /* ស្រមោលធំ */
+  z-index: 1000; /* ឱ្យវាលោតមកលើគេបង្អស់ */
+  width: 90%;
+  max-width: 350px;
+  max-height: 85vh;
+  overflow-y: auto;
+  text-align: left; /* ឱ្យអក្សរក្នុងទម្រង់រត់ទៅឆ្វេងវិញ */
+}
+
+/* ប្រអប់វាយអក្សរក្នុង Popup */
+#buy-popup input, #buy-popup select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 15px 0;
+  border: 2px solid #b2ebf2; /* បន្ទាត់គែមខៀវស្រាល */
+  border-radius: 10px;
+  font-family: 'Kantumruy Pro', sans-serif;
+  box-sizing: border-box; /* ការពារកុំឱ្យប្រអប់រីកហួសទំហំ */
+}
+
+#buy-popup input:focus, #buy-popup select:focus {
+  outline: none;
+  border-color: #00bcd4; /* ប្តូរពណ៌បន្ទាត់ពេលចុចវាយអក្សរ */
+}
+
+/* បង្រួម QR កូដក្នុង Popup កុំឱ្យធំពេក */
+#qr-code {
+  max-width: 150px;
+  display: block;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+/* ប៊ូតុងបិទក្នុង Popup ឱ្យពណ៌ក្រហមតូចនៅខាងស្តាំ */
+#buy-popup button[onclick="closePopup()"] {
+  background-color: #ff4757; 
+  width: auto;
+  float: right;
+  padding: 8px 15px;
+  margin-bottom: 10px;
+}
