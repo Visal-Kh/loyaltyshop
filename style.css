@@ -26,6 +26,10 @@ h1 {
   width: 95%; /* ទំហំប្រអប់កុំឱ្យធំពេក */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
+    display: flex;
+    flex-direction: column;      /* រៀបចំខ្លឹមសារពីលើចុះក្រោម */
+    justify-content: space-between; /* រុញប៊ូតុងឱ្យនៅបាតក្រោមស្មើគ្នាជានិច្ច */
+    min-height: 400px;           /* កំណត់កម្ពស់ទាបបំផុតឱ្យស្មើគ្នា (បងអាចដូរលេខបាន) */
 }
 
 /* ចលនាពេលយកដៃប៉ះប្រអប់ទំនិញ 👆 */
