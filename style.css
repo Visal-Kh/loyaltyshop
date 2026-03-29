@@ -26,10 +26,6 @@ h1 {
   width: 95%; /* ទំហំប្រអប់កុំឱ្យធំពេក */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-sizing: border-box;
-    display: flex;
-    flex-direction: column;      /* រៀបចំខ្លឹមសារពីលើចុះក្រោម */
-    justify-content: space-between; /* រុញប៊ូតុងឱ្យនៅបាតក្រោមស្មើគ្នាជានិច្ច */
-    min-height: 400px;           /* កំណត់កម្ពស់ទាបបំផុតឱ្យស្មើគ្នា (បងអាចដូរលេខបាន) */
 }
 
 /* ចលនាពេលយកដៃប៉ះប្រអប់ទំនិញ 👆 */
@@ -129,11 +125,6 @@ button:active {
   padding: 8px 15px;
   margin-bottom: 10px;
 }
-/* សម្រាប់អេក្រង់ធំ (PC/Desktop) */
-@media (min-width: 768px) {
-    .product-box {
-        width: 30%; /* ឱ្យវាដេកទន្ទឹមគ្នា ៣ ប្រអប់ក្នុងមួយជួរ */
-    }
   /* កែសម្រួលឈ្មោះផលិតផល */
 .product-box h2 {
     font-size: 24px; /* ពង្រីកឈ្មោះផលិតផលឱ្យធំល្មម */
