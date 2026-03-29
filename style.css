@@ -23,7 +23,7 @@ h1 {
   box-shadow: 0 8px 16px rgba(0, 151, 167, 0.1); /* ស្រមោលពណ៌ខៀវ */
   padding: 20px;
   margin: 20px auto; /* ឃ្លាតពីគ្នាបន្តិច */
-  max-width: 320px; /* ទំហំប្រអប់កុំឱ្យធំពេក */
+  max-width: 95%; /* ទំហំប្រអប់កុំឱ្យធំពេក */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
