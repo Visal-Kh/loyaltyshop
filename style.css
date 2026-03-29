@@ -22,8 +22,8 @@ h1 {
   border-radius: 20px; /* ជ្រុងកោងមូល */
   box-shadow: 0 8px 16px rgba(0, 151, 167, 0.1); /* ស្រមោលពណ៌ខៀវ */
   padding: 20px;
-  margin: 20px auto; /* ឃ្លាតពីគ្នាបន្តិច */
-  max-width: 90%; /* ទំហំប្រអប់កុំឱ្យធំពេក */
+  margin: 25px auto; /* ឃ្លាតពីគ្នាបន្តិច */
+  max-width: 85%; /* ទំហំប្រអប់កុំឱ្យធំពេក */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
