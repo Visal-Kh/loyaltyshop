@@ -1,3 +1,25 @@
+// ១. ទាញយកម៉ោងចាស់មកវិញ
+const savedTime = localStorage.getItem('wait_until');
+
+// ២. ឆែកមើលថាបើមានម៉ោងចាស់ ហើយម៉ោងឥឡូវនៅតិចជាងម៉ោងកំណត់ (ពោលគឺនៅមិនទាន់ដល់ម៉ោង)
+if (savedTime && Date.now() < savedTime) {
+    // ១. ចាប់យកប៊ូតុង និងបិទមិនឱ្យចុចសិន
+    let btn = document.getElementById("submitBtn");
+    btn.disabled = true;
+    btn.innerText = "សូមរង់ចាំ...";
+    btn.style.backgroundColor = "gray";
+
+    // ២. គណនាពេលវេលាដែលនៅសល់
+    let timeLeft = savedTime - Date.now();
+
+    // ៣. បញ្ជាឱ្យរាប់ថយក្រោយបន្ត តាមតែពេលវេលាដែលនៅសល់ប៉ុណ្ណោះ
+    setTimeout(function() {
+        btn.disabled = false; // បើកឱ្យចុចវិញ
+        btn.innerText = "បញ្ជាក់ការទិញ";
+        btn.style.backgroundColor = "#00bcd4";
+    }, timeLeft); // យើងប្រើពាក្យ timeLeft ជំនួសឱ្យលេខ 600000
+}
+
 let botToken = "8662075440:AAEy0Azz0T_6zRv_fIKW40tuEtI0L_TBclM";
 let chatId = "1928555453";
 
@@ -58,14 +80,19 @@ function sendToTelegram() {
     
     // ត្រឡប់អក្សរប៊ូតុងមកសភាពដើមវិញ
     document.getElementById("submitBtn").innerText = "បញ្ជាក់ការទិញ";
-        // ប្រាប់ភ្ញៀវឱ្យរង់ចាំ ៦០ វិនាទី
+        // ប្រាប់ភ្ញៀវឱ្យរង់ចាំ ១០នាទី
     btn.innerText = "សូមរង់ចាំរយះពេល ១០ នាទី ដើម្បីធ្វើការបញ្ជាការទិញម្ដងទៀត";
-    
-    // ⏱️ កំណត់ម៉ោងរោទ៍ ដោះសោប៊ូតុងវិញក្រោយ ៦០ វិនាទី
+    // ១. កំណត់ម៉ោងផុតកំណត់ (១០ នាទី = ៦០០,០០០ មីលីវិនាទី)
+    const expiryTime = Date.now() + 600000;
+
+    // ២. កត់ត្រាម៉ោងផុតកំណត់នេះចូលក្នុង Local Storage របស់ Browser
+    localStorage.setItem('wait_until', expiryTime);
+
+    // ៣. បញ្ជាឱ្យប៊ូតុងរង់ចាំ ១០ នាទី ទើបអាចចុចបានវិញ
     setTimeout(function() {
-      btn.disabled = false; // ផ្តល់សិទ្ធិឱ្យចុចបានវិញ
-      btn.innerText = "បញ្ជាក់ការទិញ"; // ប្តូរអក្សរមកដើម
-      btn.style.backgroundColor = "#00bcd4"; // ប្តូរពណ៌មកខៀវវិញ
-    }, 600000); // លេខ 60000 នេះមានន័យថា ៦០,០០០ មីលីវិនាទី (ស្មើនឹង ៦០ វិនាទី)
+        btn.disabled = false;
+        btn.innerText = "បញ្ជាក់ការទិញ";
+        btn.style.backgroundColor = "#00bcd4";
+    }, 600000);
   });
 }
