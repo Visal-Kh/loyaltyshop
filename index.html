@@ -6,27 +6,42 @@
   <!-- កន្លែងសម្រាប់ភ្ជាប់កូដ CSS មកកាន់ HTML -->
 </head>
 <body>
-  <div class="product-box">
-  <h1>សូមស្វាគមន៍មកកាន់ LoyaltyShop</h1>
-  </div>
+<div class="language-switch">
+    <span id="theme-toggle" style="margin-right: 15px;">🌙</span>
+    <span id="btn-kh" onclick="setKhmer()">ខ្មែរ</span> | <span id="btn-en" onclick="setEnglish()">EN</span>
+</div>
+
+<div id="flash-sale-timer" class="timer-box">កំពុងទាញយកម៉ោង...</div>
+
+<div class="product-box">
+    <h1 class="lang-kh">សូមស្វាគមន៍មកកាន់ LoyaltyShop</h1>
+    <h1 class="lang-en" style="display: none;">Welcome to LoyaltyShop</h1>
+</div>
+
   <div class="product-container">
   <div class="product-box">
     <img src="https://i.postimg.cc/yY1MnWm9/Pro.jpg"
     <h2>ᴘʀᴏ ᴘʟᴀʏᴇʀ</h2>
     <p class="price">$3.00</p>
-    <button class="buy-button" onclick="openPopup()">ទិញឥឡូវនេះ</button>
+<button class="buy-button lang-kh" onclick="openPopup()">ទិញឥឡូវនេះ</button>
+<button class="buy-button lang-en" onclick="openPopup()" style="display: none;">Buy Now</button>
+
   </div>
   <div class="product-box">
     <img src="https://i.postimg.cc/zvJcdPgN/King.jpg"
     <h2>ᴋɪɴɢ ᴘʟᴀʏᴇʀ</h2>
     <p class="price">$6.00</p>
-    <button class="buy-button" onclick="openPopup()">ទិញឥឡូវនេះ</button>
+<button class="buy-button lang-kh" onclick="openPopup()">ទិញឥឡូវនេះ</button>
+<button class="buy-button lang-en" onclick="openPopup()" style="display: none;">Buy Now</button>
+
   </div>
   <div class="product-box">
     <img src="https://i.postimg.cc/VNnZzcqx/God.jpg"
     <h2>ɢᴏᴅ ᴘʟᴀʏᴇʀ</h2>
     <p class="price">$9.00</p>
-    <button class="buy-button" onclick="openPopup()">ទិញឥឡូវនេះ</button>
+<button class="buy-button lang-kh" onclick="openPopup()">ទិញឥឡូវនេះ</button>
+<button class="buy-button lang-en" onclick="openPopup()" style="display: none;">Buy Now</button>
+
   </div>
   
   <div id="buy-popup">
@@ -69,6 +84,11 @@
 </div>
 
    <script src="script.js"></script>
+
+<footer class="site-footer">
+    <p class="lang-kh">© 2026 LoyaltyShop. រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+    <p class="lang-en" style="display: none;">© 2026 LoyaltyShop. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
