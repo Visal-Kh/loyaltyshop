@@ -120,3 +120,111 @@ function createSnowflake() {
 
 // បញ្ជាឱ្យបង្កើតគ្រាប់ព្រឹលថ្មីៗជារៀងរាល់ 0.1 វិនាទី
 setInterval(createSnowflake, 100);
+// សកម្មភាពពេលចុចប៊ូតុង "ខ្មែរ"
+// សកម្មភាពពេលចុចប៊ូតុង "ខ្មែរ"
+function setKhmer() {
+    // ១. លាក់/បង្ហាញអក្សរ
+    document.querySelectorAll('.lang-kh').forEach(function(el) {
+        el.style.display = '';
+    });
+    
+    document.querySelectorAll('.lang-en').forEach(function(el) {
+        el.style.display = 'none';
+    });
+
+    // ២. ចងចាំភាសា (ដាក់នៅទីនេះវិញ ទើបត្រឹមត្រូវ)
+    localStorage.setItem('saved_language', 'kh');
+}
+
+// សកម្មភាពពេលចុចប៊ូតុង "EN"
+// សកម្មភាពពេលចុចប៊ូតុង "EN"
+function setEnglish() {
+    // ១. លាក់/បង្ហាញអក្សរ
+    document.querySelectorAll('.lang-en').forEach(function(el) {
+        el.style.display = '';
+    });
+    
+    document.querySelectorAll('.lang-kh').forEach(function(el) {
+        el.style.display = 'none';
+    });
+
+    // ២. ចងចាំភាសា 
+    localStorage.setItem('saved_language', 'en');
+}
+
+// ចាប់យកប៊ូតុងព្រះច័ន្ទ
+const themeToggle = document.getElementById('theme-toggle');
+
+// បញ្ជាពេលមានគេចុចលើវា
+themeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    
+    if (document.body.classList.contains('dark-mode')) {
+        themeToggle.innerText = '☀️'; 
+        // ឱ្យកុំព្យូទ័រចងចាំថា ភ្ញៀវចូលចិត្តងងឹត
+        localStorage.setItem('saved_theme', 'dark'); 
+    } else {
+        themeToggle.innerText = '🌙'; 
+        // ឱ្យកុំព្យូទ័រចងចាំថា ភ្ញៀវចូលចិត្តភ្លឺ
+        localStorage.setItem('saved_theme', 'light'); 
+    }
+});
+// មុខងារនាឡិការាប់ថយក្រោយ ១០ នាទី
+function startCountdown() {
+    // ឆែកមើលថាតើធ្លាប់មានម៉ោងកត់ត្រាទុកក្នុង Local Storage ឬនៅ
+    let endTime = localStorage.getItem('flashSaleEndTime');
+
+    if (!endTime) {
+        // បើមិនទាន់មានទេ យើងកំណត់ម៉ោងថ្មី (១០ នាទី គិតចាប់ពីពេលនេះ)
+        // 10 នាទី * 60 វិនាទី * 1000 មីលីវិនាទី
+        endTime = new Date().getTime() + 10 * 60 * 1000; 
+        localStorage.setItem('flashSaleEndTime', endTime);
+    }
+
+    // បញ្ជាឱ្យនាឡិកាគណនាឡើងវិញរៀងរាល់ ១ វិនាទី (1000ms)
+    let timerInterval = setInterval(function() {
+        let now = new Date().getTime();
+        let distance = endTime - now;
+
+        // គណនាទាញយក នាទី និង វិនាទី
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // បង្ហាញតួលេខនៅលើវេបសាយ
+        document.getElementById("flash-sale-timer").innerHTML = "🔥 ប្រញាប់ឡើង! បញ្ចុះតម្លៃពិសេសបញ្ចប់ក្នុង៖ " + minutes + " នាទី " + seconds + " វិនាទី";
+
+        // បើអស់ម៉ោង (ដល់សូន្យ)
+        if (distance < 0) {
+            clearInterval(timerInterval); // បញ្ឈប់នាឡិកា
+            document.getElementById("flash-sale-timer").innerHTML = "❌ ការបញ្ចុះតម្លៃបានបញ្ចប់ហើយ!";
+                        // ថែមកូដមួយជួរនេះ ដើម្បីបញ្ជាឱ្យវាលុបការចងចាំម៉ោងចាស់ចោល
+
+            // បើបងចង់ឱ្យវាលោត ១០ នាទីម្ដងទៀតពេលគេចូលថ្ងៃក្រោយ អាចដោះសញ្ញា // ខាងក្រោមនេះចេញ
+            // localStorage.removeItem('flashSaleEndTime'); 
+        }
+    }, 1000);
+}
+
+
+// ពេលវេបសាយដើរ (Load) វានឹងឆែកមើលទាំងភាសា និងពណ៌
+window.onload = function() {
+    // ១. ឆែកមើលភាសា
+    let savedLang = localStorage.getItem('saved_language');
+    if (savedLang === 'en') {
+        setEnglish();
+    } else {
+        setKhmer();
+            // បញ្ជាឱ្យនាឡិកាចាប់ផ្ដើមដើរ
+    startCountdown();
+};
+
+    // ២. ឆែកមើលពណ៌វេបសាយ (Dark Mode)
+    let savedTheme = localStorage.getItem('saved_theme');
+    if (savedTheme === 'dark') {
+        // បើធ្លាប់រើសងងឹត ឱ្យវាពាក់អាវងងឹត ហើយដូររូបទៅព្រះអាទិត្យ
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-toggle').innerText = '☀️';
+    }
+};
+
+
