@@ -21,7 +21,7 @@ h1 {
   background-color: white; /* ផ្ទៃប្រអប់ពណ៌ស */
   border-radius: 20px; /* ជ្រុងកោងមូល */
   box-shadow: 0 8px 16px rgba(0, 151, 167, 0.1); /* ស្រមោលពណ៌ខៀវ */
-  padding: 20px;
+  padding: 10px;
   margin: 20px auto; /* ឃ្លាតពីគ្នាបន្តិច */
   width: 95%; /* ទំហំប្រអប់កុំឱ្យធំពេក */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -29,17 +29,17 @@ h1 {
 
 /* ចលនាពេលយកដៃប៉ះប្រអប់ទំនិញ 👆 */
 .product-box:hover {
-  transform: translateY(-5px); /* រំកិលឡើងលើ */
-  box-shadow: 0 12px 20px rgba(0, 151, 167, 0.3);
+    transform: translateY(-5px); /* រុញប្រអប់ឱ្យឡើងលើបន្តិច ពេលប៉ះ */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* បន្ថែមស្រមោលឱ្យមើលទៅផុសឡើង */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ធ្វើឱ្យចលនាដើរយឺតៗ រលូន */
 }
-
 /* រូបភាពក្នុងប្រអប់ទំនិញ */
 .product-box img {
-  width: 100%;
-  height: 200px; /* កំណត់កម្ពស់ថេរ កុំឱ្យរូបភាពតូចធំខុសគ្នា */
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 10px;
+    width: 100%; /* បញ្ជាឱ្យរូបភាពលាតពេញទទឹងប្រអប់ */
+    height: 110px; /* កំណត់កម្ពស់ឱ្យរូបភាពទាំងអស់ស្មើគ្នា (បងអាចតម្លើង ឬបញ្ចុះលេខនេះបានតាមការចូលចិត្ត) */
+    object-fit: cover; /* ធ្វើឱ្យរូបភាពពេញប្រអប់ដោយមិនខូចទ្រង់ទ្រាយ */
+    border-radius: 15px; /* ធ្វើឱ្យគែមរូបភាពកោងស្អាតស៊ីគ្នានឹងប្រអប់ */
+    margin-bottom: 25px; /* រុញអក្សរនៅខាងក្រោមរូបភាពឱ្យចុះបន្តិច កុំឱ្យកៀកពេក */
 }
 
 /* ពណ៌តម្លៃលុយ */
@@ -80,7 +80,7 @@ button:active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #e0f7fa;
+  background-color:  #e0f7fa;
   padding: 25px;
   border-radius: 25px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.5); /* ស្រមោលធំ */
@@ -151,4 +151,63 @@ button:active {
     100% {
         top: 100vh; /* ចំណុចបញ្ចប់៖ ធ្លាក់មកដល់ក្រោមគេផុតនៃអេក្រង់ (vh តំណាងឱ្យកម្ពស់អេក្រង់) */
     }
+}
+.language-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer; /* បន្ថែមបន្ទាត់នេះ ដើម្បីឱ្យចេញរូបបាតដៃពេលយកកណ្ដុរទៅដាក់ពីលើ */
+    background-color: white; /* ដាក់ពណ៌ផ្ទៃខាងក្រោយពណ៌ស ដើម្បីងាយស្រួលមើល */
+    padding: 10px; /* បន្ថែមគម្លាតខាងក្នុងបន្តិចឱ្យទូលាយស្អាត */
+    border-radius: 8px; /* កាត់ជ្រុងឱ្យកោងបន្តិច */
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1); /* ដាក់ស្រមោលបន្តិចឱ្យមើលទៅផុសឡើង */
+}
+.site-footer {
+    background-color: #333333; /* ផ្ទៃពណ៌ប្រផេះចាស់ ងងឹត (មើលទៅ Professional) */
+    color: white; /* អក្សរពណ៌ស */
+    text-align: center; /* រុញអក្សរឱ្យមកនៅចំកណ្ដាល */
+    padding: 20px 0; /* ពង្រីកប្រអប់លើក្រោមបន្តិច កុំឱ្យកៀកអក្សរពេក */
+    margin-top: 50px; /* រុញប្រអប់នេះឱ្យនៅឆ្ងាយពីបញ្ជីទំនិញខាងលើបន្តិច */
+    font-size: 14px; /* ទំហំអក្សរតូចល្មម */
+    width: 100%; /* ឱ្យប្រអប់នេះលាតសន្ធឹងពេញទំហំអេក្រង់ */
+}
+/* ធ្វើឱ្យការប្ដូរពណ៌មានភាពរលូន (មិនលោតកន្ត្រាក់) */
+body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ពណ៌ពេលប្ដូរទៅងងឹត (Dark Mode) */
+body.dark-mode {
+    background-color: #121212; /* ផ្ទៃខាងក្រោយពណ៌ខ្មៅ */
+    color: #ffffff; /* អក្សរពណ៌ស */
+}
+
+/* ប្ដូរពណ៌ប្រអប់ទំនិញពេលវេបសាយងងឹត */
+body.dark-mode .product-box {
+    background-color: #1e1e1e; /* ពណ៌ប្រអប់ខ្មៅស្រាលជាងផ្ទៃបន្តិច */
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); /* ដូរស្រមោលទៅពណ៌សព្រាលៗ */
+}
+
+/* ប្ដូរពណ៌ប្រអប់ប្ដូរភាសាពេលវេបសាយងងឹត */
+body.dark-mode .language-switch {
+    background-color: #333333;
+    color: #ffffff;
+}
+.timer-box {
+    background-color: #ff4757;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 60px; /* 👈 ថែមមួយជួរនេះ ដើម្បីរុញប្រអប់ចុះក្រោមបន្តិច ផុតពីប៊ូតុង */
+    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+}
+
+/* ប្ដូរពណ៌បន្តិចពេលវេបសាយចូល Dark Mode កុំឱ្យវាចាំងភ្នែកពេក */
+body.dark-mode .timer-box {
+    background-color: #cc0000;
 }
