@@ -96,3 +96,27 @@ function sendToTelegram() {
     }, 600000);
   });
 }
+function createSnowflake() {
+    // ១. បង្កើតគ្រាប់ព្រឹលថ្មីមួយ
+    let snow = document.createElement("div");
+    snow.classList.add("snowflake");
+    
+    // ២. កំណត់ឱ្យវាបង្ហាញខ្លួននៅទីតាំងរាយប៉ាយ (ឆ្វេង ស្ដាំ) ខុសៗគ្នា
+    snow.style.left = Math.random() * 100 + "vw";
+    
+    // ៣. កំណត់ទំហំគ្រាប់ព្រឹលតូចធំខុសៗគ្នា
+    let size = Math.random() * 5 + 3;
+    snow.style.width = size + "px";
+    snow.style.height = size + "px";
+    
+    // ៤. បញ្ចូលគ្រាប់ព្រឹលនេះទៅក្នុងវេបសាយ
+    document.body.appendChild(snow);
+    
+    // ៥. លុបវាចោលវិញក្រោយ ៥ វិនាទី (ដើម្បីកុំឱ្យវាមានច្រើនពេកបណ្ដាលឱ្យគាំងវេបសាយ)
+    setTimeout(function() {
+        snow.remove();
+    }, 9000);
+}
+
+// បញ្ជាឱ្យបង្កើតគ្រាប់ព្រឹលថ្មីៗជារៀងរាល់ 0.1 វិនាទី
+setInterval(createSnowflake, 100);
